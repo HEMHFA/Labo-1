@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1= "Res"
+    ul
+        each task in listeTasks.rows
+            li=task['nom']

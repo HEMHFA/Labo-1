@@ -12,7 +12,7 @@ exports.task_list = function(req, res, next) {
     const query = {
     // give the query a unique name
     name: 'fetch-all-task',
-    text: 'SELECT * FROM task',
+    text: 'SELECT * FROM cabalist',
     };
 
     db.query(query, function(err, result){
@@ -21,7 +21,7 @@ exports.task_list = function(req, res, next) {
             res.send('ERROR');
 
         } else {
-            res.render('task', { listeTasks : result });
+            res.render('cabalist', { listeTasks : result });
 
         }
     });
@@ -38,7 +38,7 @@ exports.task_detail = function(req, res, next) {
     const query = {
     // give the query a unique name
     name: 'fetch-task',
-    text: 'SELECT * FROM task WHERE id = $1',
+    text: 'SELECT * FROM cabalist WHERE id = $1',
     values: [req.params.id]
     };
 
