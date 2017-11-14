@@ -44,6 +44,26 @@ class TaskPgDAO{
 
     };
 
+    getTaskById(id, displaycb){
+        const query = {
+            name: 'fetch-one-task',
+            text: 'SELECT * FROM cabalist WHERE rank = $1 ',
+            values: [id]
+        };
+
+        this._client.query(query, function(err, result){
+            if (err) {
+                console.log(err.stack);
+            } else {
+                let laTask;
+                laTask = new Task(0, result.rows[0]['nom']);
+                displaycb(laTask);
+
+            }
+        });
+
+    }
+
 }
 
 

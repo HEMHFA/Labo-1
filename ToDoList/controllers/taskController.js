@@ -16,7 +16,12 @@ exports.task_list = function(req, res,next){
 
 //Display One Task find by id
 exports.task_detail = function(req, res, next) {
-    res.send('NOT IMPLEMENTED: Task detail');
+
+    taskPgDAO.getTaskById(req.params.id, function(laTask){
+            res.send("L'utilisateur " + req.params.id + " s'appelle " + laTask.nom + ".")
+        }
+
+    );
 
 };
 

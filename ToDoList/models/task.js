@@ -8,10 +8,10 @@ class Task {
      */
     constructor(unId, unLib) {
         this._id = unId;
-        this._libelle = unLib;
+        this._nom = unLib;
     }
-    get libelle(){
-        return this._libelle;
+    get nom(){
+        return this._nom;
     }
 }
 module.exports = Task;
